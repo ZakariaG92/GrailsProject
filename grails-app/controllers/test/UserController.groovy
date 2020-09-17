@@ -7,18 +7,31 @@ class UserController {
 
     UserService userService
 
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond userService.list(params), model:[userCount: userService.count()]
     }
+    def createNewUser() {
+
+        respond "hello"
+    }
+
 
     def show(Long id) {
         respond userService.get(id)
     }
 
     def create() {
+        //println(params.username)
+        if(params.isEmpty()) {
+            def username = params.username
+            def pass = params.password
+
+        }
+
         respond new User(params)
     }
 
@@ -43,6 +56,7 @@ class UserController {
             '*' { respond user, [status: CREATED] }
         }
     }
+
 
     def edit(Long id) {
         respond userService.get(id)

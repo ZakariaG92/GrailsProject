@@ -2,10 +2,16 @@
 <html>
     <head>
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <title>Creation utilisateur</title>
     </head>
     <body>
+        <form method="post">
+            Username : <input type="text" name="username" id="username">
+            Password : <input type="password" name="password" id="password">
+            Role : <input type="text" name="role" id="role">
+            <input type="submit" value="submit">
+        </form>
+        <!--
         <a href="#create-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
@@ -34,5 +40,6 @@
                 </fieldset>
             </g:form>
         </div>
+        -->
     </body>
 </html>
