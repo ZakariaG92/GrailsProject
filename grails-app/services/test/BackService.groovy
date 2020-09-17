@@ -15,6 +15,7 @@ class BackService {
     def createUser (String username ,String password, String role){
         // Creation utilisateur
         def user = new User(username: username, password: password).save()
+
         if(user) {
             //Creation userRole
             UserRole.create(user, Role.get(role))
