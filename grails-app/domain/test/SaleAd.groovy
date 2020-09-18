@@ -9,7 +9,7 @@ class SaleAd {
     Date dateCreated
     Date lastUpdated
 
-    // Illustrations
+
 
     static hasMany = [illustrations:Illustration]
 
@@ -20,7 +20,7 @@ class SaleAd {
         descShort nullable:false, blank:false
         descLong nullable:false, blank:false
         price nullable:false
-        illustrations nullable:false
+        illustrations nullable:true
 
     }
 

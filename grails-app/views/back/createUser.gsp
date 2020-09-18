@@ -16,7 +16,7 @@
     ${message}
 <div class="container">
 <div class="row">
-    <form class="col mt-3">
+    <form class="col mt-3" method="POST">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">

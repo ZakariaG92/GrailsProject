@@ -16,6 +16,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Username</th>
                     <th scope="col">Role</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,10 @@
                         <th scope="row">${it.id}</th>
                         <td>${it.username}</td>
                         <td>${it.getAuthorities()}</td>
+                        <td>
+                            <g:link controller="back" action="editUser" id="${it.id}">Edit user</g:link>
+                            <g:link controller="back" action="deleteUser" id="${it.id}">Delete user</g:link>
+                        </td>
                     </tr>
                 </g:each>
                 </tbody>
@@ -31,6 +36,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
