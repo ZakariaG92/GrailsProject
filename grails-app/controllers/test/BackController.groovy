@@ -32,7 +32,7 @@ class BackController {
     }
     @Secured("ROLE_ADMIN")
     def listUser() {
-        [listUser: backService.listUser()]
+        [listUser: backService.listUser(),userRo:UserRole.list()]
     }
     @Secured("ROLE_ADMIN")
     def editUser() {

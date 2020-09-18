@@ -24,7 +24,7 @@
                     <tr>
                         <th scope="row">${it.id}</th>
                         <td>${it.username}</td>
-                        <td>${it.getAuthorities()}</td>
+                        <td><g:each in="${it.getAuthorities()}">${it.authority}</g:each></td>
                         <td>
                             <g:link controller="back" action="editUser" id="${it.id}">Edit user</g:link>
                             <g:link controller="back" action="deleteUser" id="${it.id}">Delete user</g:link>
