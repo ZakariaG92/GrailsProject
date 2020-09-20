@@ -19,7 +19,8 @@ class BackService {
 
         if(user) {
             //Creation userRole
-            UserRole.create(user, Role.get(role))
+            if(role)
+                UserRole.create(user, Role.get(role))
             return true
         } else {
             return false

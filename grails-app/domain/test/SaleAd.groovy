@@ -1,5 +1,7 @@
 package test
 
+import grails.rest.Resource
+
 class SaleAd {
 
     String descShort
