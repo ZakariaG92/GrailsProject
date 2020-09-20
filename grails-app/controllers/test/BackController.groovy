@@ -59,10 +59,7 @@ class BackController {
         redirect(action: "listUser")
     }
 
-    def createSaleAd() {
-    }
-
-    //display Advertise
+    @Secured("ROLE_ADMIN")
     def salesAd() {
         println(backService.salesAd())
 
@@ -80,6 +77,7 @@ class BackController {
         redirect(action: "salesAd")
     }
 
+    @Secured("ROLE_ADMIN")
     def editAd(){
         def id = params.id
         if(id) {
@@ -89,7 +87,7 @@ class BackController {
             }
         }
     }
-
+    @Secured("ROLE_ADMIN")
     def editAdMethod() {
         def id = params.id
         def ad = SaleAd.get(id)
