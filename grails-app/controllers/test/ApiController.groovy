@@ -20,15 +20,15 @@ class ApiController {
                 }
                 break
             case "POST" :
-                if(!params.username || !params.password)
+                if(!request.JSON.username || !request.JSON.password)
                     return response.status = 400
-                def user = User.findByUsername(params.username)
+                def user = User.findByUsername(request.JSON.username)
                 if(user)
                     withFormat {
                         json { render ([error : true, message : "User not created, username already exists"] as JSON)}
                     }
 
-               def created = backService.createUser(params.username, params.password, null)
+               def created = backService.createUser(request.JSON.username, request.JSON.password, null)
                 if(created)
                     return response.status = 201
                 else
@@ -175,11 +175,22 @@ class ApiController {
                 }
                 break
             case "POST":
-              // if( !params.title || !params.descShort || !params.descLong || !params.price) {return response.status = 400}
+                if( !request.JSON.title || !request.JSON.descShort || !request.JSON.descLong || !request.JSON.price)
+                    return response.status = 400
 
-                def annonceInstance = new SaleAd(title: params.get("title"), descShort: params.get("descShort"),
-                        descLong:params.get("descLong"),price:params.get("price")).save()
-                return response.status = 200
+                println(request.JSON)
+
+
+                //def created =  new SaleAd(title:request.JSON.title,descShort:request.JSON.descShort,descLong:request.JSON.descLong,price:request.JSON.price).save()
+                println request.JSON
+                def created = backService.createSalesAd(request.JSON,null, null)
+                println created
+                if(created)
+                    return response.status = 201
+                else
+                    withFormat {
+                        json { render ([error : true, message : "Sale not created"] as JSON)}
+                    }
                 break
 
             default:

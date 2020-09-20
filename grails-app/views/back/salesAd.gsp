@@ -24,6 +24,7 @@
                         <th scope="col">Title</th>
                         <th scope="col">Desc</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Actions</th>
                     </tr>
                     </thead>
                     <tbody>

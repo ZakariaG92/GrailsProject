@@ -61,21 +61,23 @@ class BackService {
 
 
     def createSalesAd(params, List illustrations, path){
-        def ad = new SaleAd(title:params.title,descShort:params.descShort,descLong:params.descLong,price:params.price).save()
-        println params
-        print ad
+        def ad = new SaleAd(title:params.title,descShort:params.descShort,descLong:params.descLong,price:params.price).save(flush:true)
+
         if(ad) {
-            print "illu"
-            if(!illustrations?.empty && illustrations?.size() != 0)  {
-                println("FILLES")
+
+            if(illustrations!= null && !illustrations.empty && illustrations.size() != 0)  {
                 illustrations.forEach( {
-                    def fileName = ad.id + "_" + it.originalFilename
-                    def newFile = new File(path + fileName)
-                    it.transferTo(newFile)
-                    def illustration = new Illustration(filename: fileName)
-                    ad.illustrations.add(illustration)
+                    if(!it.isEmpty()) {
+                        def fileName = ad.id + "_" + it.originalFilename
+                        def newFile = new File(path + fileName)
+                        it.transferTo(newFile)
+                        def illustration = new Illustration(filename: fileName)
+
+                        ad.illustrations.add(illustration)
+                    }
                 })
             }
+
             return true
         } else {
             return false
