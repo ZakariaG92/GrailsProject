@@ -1,10 +1,10 @@
 # GrailsProject
 
-Groupe : 
-Moussaoui Mohammed
-Gasmi Zakaria 
-Projet :
-Notre application lecoincoin se divise sur trois parties :
+# Groupe : 
+# Moussaoui Mohammed
+# Gasmi Zakaria 
+# Projet :
+Notre application lecoincoin se divise sur trois parties : </p>
 Un backend qui permet à l’admin de créer un utilisateur en précisant un username qui n’existe pas déjà, un password et un rôle, de le modifier, ou de le supprimer. Également, il peut appliquer les mêmes actions pour les annonces, avec la possibilité d’ajouter une ou plusieurs images. Pour les deux.
 Le Backend n’est accessible que si l’utilisateur est connecté en Admin ou Modérateur
 Un Front end permet à tous les utilisateur (Connecté ou non) de visualiser les annonces actuelles.
