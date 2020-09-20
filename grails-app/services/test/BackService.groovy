@@ -59,6 +59,16 @@ class BackService {
         ad.delete()
     }
 
+    def editAd(id , String descShort, String descLong, String title, price){
+        def advert =  SaleAd.get(id)
+        println(advert)
+        advert.title = title;
+        advert.descShort=descShort;
+        advert.descLong=descLong;
+        advert.price=price;
+        advert.save(flush:true);
+    }
+
 
     def createSalesAd(params, List illustrations, path){
         def ad = new SaleAd(title:params.title,descShort:params.descShort,descLong:params.descLong,price:params.price).save(flush:true)

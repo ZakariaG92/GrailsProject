@@ -36,7 +36,19 @@ class BackController {
     }
     @Secured("ROLE_ADMIN")
     def editUser() {
-        [user: backService.getUser(params.id), listRole: backService.listRole()]
+        if(params.id) {
+            def user = backService.getUser(params.id)
+            if(user) {
+                if(params.username && params.password)
+                {
+                    user.username = params.username
+                    user.password = params.password
+                    user.save()
+                    redirect(action: "listUser")
+                }
+                [user: backService.getUser(params.id), listRole: backService.listRole()]
+            }
+        }
     }
     @Secured("ROLE_ADMIN")
     def deleteUser(){
@@ -66,6 +78,33 @@ class BackController {
         }
 
         redirect(action: "salesAd")
+    }
+
+    def editAd(){
+        def id = params.id
+        if(id) {
+            def ad = SaleAd.get(id)
+            if(ad) {
+                ['saleAd' : ad]
+            }
+        }
+    }
+
+    def editAdMethod() {
+        def id = params.id
+        def ad = SaleAd.get(id)
+        if(ad) {
+            if(params.descShort && params.descLong && params.title && params.price) {
+                ad.descLong = params.descLong
+                ad.descShort = params.descShort
+                ad.title = params.title
+                ad.price = Float.valueOf(params.price);
+                ad.save(flush:true)
+                println "SAVED"
+                redirect(action: "salesAd")
+            }
+            println ad
+        }
     }
 
     @Secured("ROLE_ADMIN")

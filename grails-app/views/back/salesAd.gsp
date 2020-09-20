@@ -35,8 +35,8 @@
                             <td>${it.descShort}</td>
                             <td>${it.price}</td>
                             <td>
-                                <g:link controller="back" action="editUser" id="${it.id}">Edit user</g:link>
-                                <g:link controller="back" action="deleteAd" id="${it.id}">Delete Advertise</g:link>
+                                <g:link controller="back" action="editAd" id="${it.id}">Edit ad</g:link>
+                                <g:link controller="back" action="deleteAd" id="${it.id}">Delete ad</g:link>
                             </td>
                         </tr>
                     </g:each>
