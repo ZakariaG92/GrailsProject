@@ -1,7 +1,6 @@
 # GrailsProject
 
-# Groupe : 
-# Moussaoui Mohammed
+
 # Gasmi Zakaria 
 # Projet :
 Notre application lecoincoin se divise sur trois parties : </p>
